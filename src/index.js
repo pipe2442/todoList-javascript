@@ -14,7 +14,7 @@ const mostrar = () => {
     }
 
     list.push(new Project(task.value))
-    console.log(list)
+    // console.log(list)
     document.getElementById('task').value = ''
 
 
@@ -30,15 +30,28 @@ const mostrar = () => {
         let div = document.createElement('div');
         h1.textContent = `Proyect ${list[index].name}`;
         div.innerHTML = '<input type="text" id="todo">'
-        +'<button id="addTodo" onclick="addList">New Todo</button>'
+        +'<button id="addTodos">New Todo</button>'
         render.appendChild(h1);
         render.appendChild(div);
-    }
 
+
+    }
     addProject()
-    
+
+    function addTodo() {
+        function Todo(title) {
+            this.title = title
+        }
+        const todoSelector = document.getElementById('todo').value
+        const newTodo = new Todo(todoSelector)
+
+        
+        list[0].todoList.push(newTodo) 
+        console.log(list)
+
+    }
+    document.getElementById('addTodos').onclick = addTodo
 }
 
-
-
 document.getElementById('miboton').onclick = mostrar ;
+
