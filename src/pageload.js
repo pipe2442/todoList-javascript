@@ -63,10 +63,10 @@ const pageLoad = (() => {
     formSelector.append(createInputProjectName)
     const submitProjectButton = document.createElement('input')
     submitProjectButton.setAttribute('type', 'button')
-    submitProjectButton.setAttribute('value', 'add')
+    submitProjectButton.setAttribute('value', 'Create')
     submitProjectButton.setAttribute('id', 'add')
+    submitProjectButton.classList.add('btn','btn-primary','my-1')
     formSelector.appendChild(submitProjectButton)
-
     /* Create list of projects */
     
     const createUl = document.createElement('ul')
