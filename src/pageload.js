@@ -49,8 +49,7 @@ const pageLoad = (() => {
     sidebarSelector.append(createDiv4);
     createDiv4.innerHTML = `
     <h4>Task List</h4>
-    <div id="taskqueue"></div>
-    </div>`
+    <div id="taskqueue"></div>`
     /* Create content inside sideBar*/
     const sidenavSelector = document.querySelector('.sidenav');
     const createTitle = document.createElement('h4');

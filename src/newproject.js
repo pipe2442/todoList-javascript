@@ -36,7 +36,7 @@ addButton.addEventListener('click', () => {
 
     projectSelector.addEventListener('click', () => {
       createTask.setAttribute('id2', `${index}`)
-      showTaskList
+      showTaskList()
     });
 
     console.log(projectList)
