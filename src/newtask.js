@@ -49,7 +49,6 @@ createTask.addEventListener('click', () => {
         field2Selector.value = "";
         field3Selector.value = "";
         field4Selector.value = "";
-        console.log(projectList)
     }
 });
 

@@ -1,4 +1,4 @@
-import showTaskList from './showtask.js';
+import showTaskList from './showtask';
 
 class Project {
   constructor(name) {
@@ -36,7 +36,8 @@ addButton.addEventListener('click', () => {
 
     projectSelector.addEventListener('click', () => {
       createTask.setAttribute('id2', `${index}`)
-      showTaskList
+      const a = querySelector('#finalTasklist')
+      a.innerText = projectList
     });
     
   }
