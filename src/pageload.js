@@ -43,13 +43,7 @@ const pageLoad = (() => {
     const createDiv3 = document.createElement('div');
     createDiv3.classList.add('col-sm-4','task');
     sidebarSelector.append(createDiv3);
-    const createDiv4 = document.createElement('div');
-    createDiv4.classList.add('col-sm-4');
-    createDiv4.setAttribute('id', 'finalTasklist')
-    sidebarSelector.append(createDiv4);
-    createDiv4.innerHTML = `
-    <h4>Task List</h4>
-    <div id="taskqueue"></div>`
+
     /* Create content inside sideBar*/
     const sidenavSelector = document.querySelector('.sidenav');
     const createTitle = document.createElement('h4');
@@ -69,6 +63,7 @@ const pageLoad = (() => {
     createInputProjectName.setAttribute('id', 'projectName')
     createInputProjectName.setAttribute('placeholder', 'New Project Name')
     createInputProjectName.setAttribute('size', '15');
+    createInputProjectName.classList.add('my-1')
     formSelector.append(createInputProjectName)
     submitProjectButton.setAttribute('id', 'add')
 
@@ -79,11 +74,40 @@ const pageLoad = (() => {
     createUl.classList.add('nav','wi', 'nav-pills','flex-column')
     sidenavSelector.append(createUl)
     
-    /* Create Todo list */
+    /* Create tasks */
     const taskSelector = document.querySelector('.task')
     const createTitle2 = document.createElement('h4');
     createTitle2.innerText = 'Tasks';
     taskSelector.append(createTitle2);
+    const taskForm = document.createElement('div')
+    taskForm.innerHTML = `<form id="taskForm">
+      <label for="title">Title:</label><br>
+      <input type="text" id="title"><br>
+      <label for="description">Description:</label><br>
+      <input type="text" id="description"><br>
+      <label for="dueDate">Due Date:</label><br>
+      <input type="date" id="dueDate"><br>
+    
+      <label for="priority">Priority:</label><br>
+      <select name="priority" id="priority">
+        <option value="low">low</option>
+        <option value="medium">medium</option>
+        <option value="urgent">urgent</option>
+      </select><br>
+    
+      <button type="button" class="btn btn-primary mt-2" id="createTask" >Add task</button>
+    </form> 
+    `
+    taskSelector.append(taskForm)
+
+    /* Create tasks lists */
+    const createDiv4 = document.createElement('div');
+    createDiv4.classList.add('col-sm-4');
+    createDiv4.setAttribute('id', 'finalTasklist')
+    sidebarSelector.append(createDiv4);
+    createDiv4.innerHTML = `
+    <h4>Task List</h4>
+    <div id="taskqueue"></div>`
 
   })();
   
