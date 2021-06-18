@@ -13,8 +13,8 @@ const addButton = document.querySelector('#add');
 const getProjectName = document.querySelector('#projectName')
 
 addButton.addEventListener('click', () => {
-
-  if (getProjectName.value.length > 0) {
+    
+  if (getProjectName.value.trim() != '') {
     const newProjects = new Project(getProjectName.value);
     projectList.push(newProjects)
     const index = projectList.length - 1
@@ -39,8 +39,7 @@ addButton.addEventListener('click', () => {
       createTask.setAttribute('id2', `${index}`)
       list.setAttribute('id2', `${index}`)
       showTaskList()
-    });
-    
+    });   
   }
 
 });
