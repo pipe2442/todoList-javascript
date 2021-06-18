@@ -38,12 +38,16 @@ const pageLoad = (() => {
     newdivSelector.append(createDiv);
     const sidebarSelector = document.querySelector('#sidebar');
     const createDiv2 = document.createElement('div');
-    createDiv2.classList.add('col-sm-3','sidenav')
+    createDiv2.classList.add('col-sm-4','sidenav')
     sidebarSelector.append(createDiv2);
     const createDiv3 = document.createElement('div');
-    createDiv3.classList.add('col-sm-9','task');
+    createDiv3.classList.add('col-sm-4','task');
     sidebarSelector.append(createDiv3);
-
+    const createDiv4 = document.createElement('div');
+    createDiv4.classList.add('col-sm-4');
+    createDiv4.setAttribute('id', 'finalTasklist')
+    sidebarSelector.append(createDiv4);
+    createDiv4.innerHTML = '<h4>Task List</h4><div id="listul"></div>'
     /* Create content inside sideBar*/
     const sidenavSelector = document.querySelector('.sidenav');
     const createTitle = document.createElement('h4');
