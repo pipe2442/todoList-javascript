@@ -1,0 +1,24 @@
+/* @font-face {
+    font-family: "armyrust";
+    src: url("../src/fonts/armyrust.ttf");
+}
+
+* {
+    font-family: armyrust;
+}
+ */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+/*     background: url('images/background.png') no-repeat center fixed;
+    background-size: cover; */
+}
+
+footer {
+    margin-top: auto;
+}
+
+@media (max-width: 500px) {}
+
+@media (max-width: 320px) {}
