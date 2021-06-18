@@ -63,15 +63,16 @@ const pageLoad = (() => {
     
     const formSelector = document.querySelector('form')
     const createInputProjectName = document.createElement('input')
+    const submitProjectButton = document.createElement('input')
+    submitProjectButton.setAttribute('type', 'button')
+    submitProjectButton.setAttribute('value', 'Create')
     createInputProjectName.setAttribute('type', 'text')
     createInputProjectName.setAttribute('id', 'projectName')
     createInputProjectName.setAttribute('placeholder', 'New Project Name')
     createInputProjectName.setAttribute('size', '15');
     formSelector.append(createInputProjectName)
-    const submitProjectButton = document.createElement('button')
     submitProjectButton.setAttribute('id', 'add')
-    submitProjectButton.innerText = 'Create'
-    submitProjectButton.classList.add('btn','btn-primary','m-1')
+
     formSelector.appendChild(submitProjectButton)
     /* Create list of projects */
     
