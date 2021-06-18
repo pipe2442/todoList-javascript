@@ -17,8 +17,6 @@ const mostrar = () => {
     // console.log(list)
     document.getElementById('task').value = ''
 
-
-
     function addProject() {
         const addList = () => {
             list[index].todoList.push(todo.value)
