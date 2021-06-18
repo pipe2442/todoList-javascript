@@ -10,4 +10,5 @@ module.exports = {
     extensions: ['.js'],
   },
   watch: true,
+  mode: development
 };

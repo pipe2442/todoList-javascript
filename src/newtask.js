@@ -27,7 +27,7 @@ taskForm.innerHTML = `<form id="taskForm">
     <option value="urgent">urgent</option>
   </select><br>
 
-  <button type="button" class="btn btn-primary" id="createTask" >Add task</button>
+  <button class="btn btn-primary mt-2" id="createTask" >Add task</button>
 </form> 
 `
 taskSelector.append(taskForm)
