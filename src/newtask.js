@@ -1,11 +1,12 @@
-const newTask = (() => {
-    function Task(name, description, dueDate, priority) {
-        this.title = name;
+class Task {
+    constructor(title, description, dueDate, priority) {
+        this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
     }
+    
+  }
 
-})();
 
-export default newTask
+export default Task
