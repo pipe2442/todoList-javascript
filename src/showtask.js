@@ -1,18 +1,23 @@
 import { projectList } from "./newproject";
 
 
+
 const showTaskList = () => {
-
-    const test = projectList[0].todolist.length
-    //console.log(test)
-
+    const id2Selector = createTask.getAttribute('id2')
+    const array = projectList[id2Selector].todolist
     const list = document.getElementById('taskqueue')
-    list.innerHTML = `<h3> esto es el array ${
+    list.innerHTML = "";
+    array.forEach(function(array) {
+        list.innerHTML += `
+        <h5>${array.title}</h5>
+        <h5>${array.description}</h5>
+        <h5>${array.dueDate}</h5>
+        <h5>${array.priority}</h5>
+        `
+        finalTasklist.append(list)
+    });
 
-        test.forEach(console.log('hello'))}
-    
-    }</h3>`
-    finalTasklist.append(list)
 }
 
 export default showTaskList;
+
