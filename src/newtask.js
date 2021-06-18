@@ -18,9 +18,15 @@ taskForm.innerHTML = `<form id="taskForm">
   <label for="description">Description:</label><br>
   <input type="text" id="description"><br>
   <label for="dueDate">Due Date:</label><br>
-  <input type="text" id="dueDate"><br>
+  <input type="date" id="dueDate"><br>
+
   <label for="priority">Priority:</label><br>
-  <input type="text" id="priority"><br><br>
+  <select name="priority" id="priority">
+    <option value="low">low</option>
+    <option value="medium">medium</option>
+    <option value="urgent">urgent</option>
+  </select><br>
+
   <button type="button" class="btn btn-primary" id="createTask" >Add task</button>
 </form> 
 `
