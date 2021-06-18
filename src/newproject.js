@@ -7,7 +7,7 @@ class Project {
   }
 }
 
-const projectList = []
+let projectList = []
 
 const addButton = document.querySelector('#add');
 const getProjectName = document.querySelector('#projectName')
@@ -38,8 +38,6 @@ addButton.addEventListener('click', () => {
       createTask.setAttribute('id2', `${index}`)
       showTaskList()
     });
-
-    console.log(projectList)
     
   }
 

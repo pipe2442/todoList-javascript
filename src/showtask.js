@@ -1,10 +1,18 @@
 import { projectList } from "./newproject";
 
+
 const showTaskList = () => {
-    document.getElementById('finalTasklist')
+
+    const test = projectList[0].todolist.length
+    //console.log(test)
+
     const list = document.getElementById('taskqueue')
-    list.innerHTML = `<h3> DEBE SALIR UNA sscscsVEZ ${2}</h3>`
-    finalTasklist.append(simpleTask)
+    list.innerHTML = `<h3> esto es el array ${
+
+        test.forEach(console.log('hello'))}
+    
+    }</h3>`
+    finalTasklist.append(list)
 }
 
 export default showTaskList;
