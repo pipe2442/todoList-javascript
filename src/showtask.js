@@ -1,21 +1,33 @@
-import { projectList } from "./newproject";
+import {
+    projectList
+} from "./newproject";
 
 const showTaskList = () => {
     const id2Selector = createTask.getAttribute('id2')
-    const array = projectList[id2Selector].todolist
+    const task = projectList[id2Selector].todolist
+    let taskindex = 0
     const list = document.getElementById('taskqueue')
     list.innerHTML = "";
-    array.forEach(function(array) {
+    task.forEach(function (task) {
         list.innerHTML += `
-        <h5>Title: ${array.title}</h5>
-        <h5>Description: ${array.description}</h5>
-        <h5>Due Date: ${array.dueDate}</h5>
-        <h5>Priority: ${array.priority}</h5>
-        `
+        <h5 class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample${taskindex}" role="button"
+            aria-expanded="false" aria-controls="multiCollapseExample${taskindex}">
+            ${task.title}
+        </h5>
+    <div class="row">
+        <div class="collapse multi-collapse" id="multiCollapseExample${taskindex}">
+            <div>
+            <h5>Description: ${task.description}</h5>
+            <h5>Due Date: ${task.dueDate}</h5>
+            <h5>Priority: ${task.priority}</h5>
+            </div>
+        </div>
+    </div>
+    `
         finalTasklist.append(list)
+        taskindex++
     });
 
 }
 
 export default showTaskList;
-
