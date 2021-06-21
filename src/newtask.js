@@ -35,7 +35,7 @@ createTask.addEventListener('click', () => {
             field1Selector.value = "";
             field2Selector.value = "";
             field3Selector.value = "";
-            field4Selector.value = "";
+            field4Selector.value = "low";
 
             showTaskList()
         }
