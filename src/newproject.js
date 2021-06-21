@@ -36,22 +36,29 @@ addButton.addEventListener('click', () => {
     const list = document.getElementById('taskqueue')
     createTask.setAttribute('id2', `${index}`)
     
+    let activeSelector = document.querySelectorAll(".sidenav ul li a.active");
+    activeSelector.forEach(function (t) {
+      if (t.classList.contains('active')){
+      t.classList.remove('active')
+      }
+    })
+
     const lastaSelector = document.querySelector('.sidenav ul li:last-child a:last-child')
     lastaSelector.classList.toggle('active')
-    
-    const test = document.querySelectorAll('.sidenav ul li a.active')
-    console.log(test)
-    test.classList.toggle('active')
-    
-
-
+  
     /* Al clickear un proyecto ocurre */ 
     projectSelector.addEventListener('click', () => {
       createTask.setAttribute('id2', `${index}`)
       list.setAttribute('id2', `${index}`)
-      lastaSelector.classList.add('active')
 
-      
+      var activeSelector = document.querySelectorAll(".sidenav ul li a.active");
+      activeSelector.forEach(function (t) {
+        if (t.classList.contains('active')){
+        t.classList.remove('active')
+        }
+      })
+
+      lastaSelector.classList.add('active')
       
       showTaskList()
     });   
