@@ -13,7 +13,7 @@ const addButton = document.querySelector('#add');
 const getProjectName = document.querySelector('#projectName')
 
 addButton.addEventListener('click', () => {
-    
+  /* Agregar proyecto */ 
   if (getProjectName.value.trim() != '') {
     const newProjects = new Project(getProjectName.value);
     projectList.push(newProjects)
@@ -30,14 +30,29 @@ addButton.addEventListener('click', () => {
     const liSelector = document.querySelector('.sidenav ul li:last-child')
     liSelector.appendChild(createAnchorTag)
     getProjectName.value = "";
-
+    
     const projectSelector = document.getElementById(`${index}`)
     const createTask = document.getElementById('createTask')
     const list = document.getElementById('taskqueue')
+    createTask.setAttribute('id2', `${index}`)
+    
+    const lastaSelector = document.querySelector('.sidenav ul li:last-child a:last-child')
+    lastaSelector.classList.toggle('active')
+    
+    const test = document.querySelectorAll('.sidenav ul li a.active')
+    console.log(test)
+    test.classList.toggle('active')
+    
 
+
+    /* Al clickear un proyecto ocurre */ 
     projectSelector.addEventListener('click', () => {
       createTask.setAttribute('id2', `${index}`)
       list.setAttribute('id2', `${index}`)
+      lastaSelector.classList.add('active')
+
+      
+      
       showTaskList()
     });   
   }
