@@ -27,7 +27,12 @@ const showTaskList = () => {
         finalTasklist.append(list)
         taskindex++
     });
+}
 
+const wipeShowTask = () => {
+    const list = document.getElementById('taskqueue')
+    list.innerHTML = "";
 }
 
 export default showTaskList;
+export {wipeShowTask}

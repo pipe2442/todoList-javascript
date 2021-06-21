@@ -1,6 +1,7 @@
 import {
     projectList
 } from './newproject';
+import showTaskList from './showtask';
 class Task {
     constructor(title, description, dueDate, priority) {
         this.title = title;
@@ -17,6 +18,7 @@ const field3Selector = document.querySelector('#dueDate')
 const field4Selector = document.querySelector('#priority')
 
 const createTask = document.querySelector('#createTask')
+
 createTask.addEventListener('click', () => {
     const id2Selector = createTask.getAttribute('id2')
     if (id2Selector != null) {
@@ -34,8 +36,11 @@ createTask.addEventListener('click', () => {
             field2Selector.value = "";
             field3Selector.value = "";
             field4Selector.value = "";
+
+            showTaskList()
         }
     }
+    
 });
 
 export default Task

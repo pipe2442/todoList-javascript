@@ -1,4 +1,6 @@
 import showTaskList from './showtask';
+import wipeShowTask from './showtask';
+
 
 class Project {
   constructor(name) {
@@ -45,6 +47,8 @@ addButton.addEventListener('click', () => {
 
     const lastaSelector = document.querySelector('.sidenav ul li:last-child a:last-child')
     lastaSelector.classList.toggle('active')
+
+    wipeShowTask()
   
     /* Al clickear un proyecto ocurre */ 
     projectSelector.addEventListener('click', () => {
