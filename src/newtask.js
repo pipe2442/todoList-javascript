@@ -4,7 +4,6 @@ import {
 import showTaskList from './showtask';
 import clearForm from './clearForm';
 
-const newTask = () => {
     class Task {
         constructor(title, description, dueDate, priority) {
             this.title = title;
@@ -14,11 +13,6 @@ const newTask = () => {
         }
     
     }
-    
-    const field1Selector = document.querySelector('#title')
-    const field2Selector = document.querySelector('#description')
-    const field3Selector = document.querySelector('#dueDate')
-    const field4Selector = document.querySelector('#priority')
     
     const createTask = document.querySelector('#createTask')
     
@@ -42,8 +36,7 @@ const newTask = () => {
         }
         
     });
-}
 
-export default newTask
+export default Task
 
 

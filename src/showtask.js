@@ -1,6 +1,7 @@
 import {
     projectList
 } from "./newproject";
+import Task from "./newtask";
 import clearForm from "./clearForm";
 
 const showTaskList = () => {
@@ -66,12 +67,12 @@ const showTaskList = () => {
                 newBtn.setAttribute('value', 'Update')
                 taskFormSelector.append(newBtn)
             }
-            // if (document.querySelector("input[value='Update']")) {
-            //     console.log('ya existe el boton')
-            //     // projectList[id2Selector].todolist.splice(e.target.id, new Task);
-            // }
-
-
+            const updateBtn = document.querySelector("input[value='Update']")
+            updateBtn.addEventListener('click', () => {
+                const newTask = new Task('a', 'e', '', 'low');
+                projectList[id2Selector].todolist.splice(e.target.id, 1,newTask);
+                showTaskList()
+            });
         });
     })
 
@@ -83,6 +84,4 @@ const wipeShowTask = () => {
 }
 
 export default showTaskList;
-export {
-    wipeShowTask
-}
+export {wipeShowTask}
