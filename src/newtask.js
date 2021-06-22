@@ -2,6 +2,7 @@ import {
     projectList
 } from './newproject';
 import showTaskList from './showtask';
+import clearForm from './clearForm';
 class Task {
     constructor(title, description, dueDate, priority) {
         this.title = title;
@@ -9,13 +10,7 @@ class Task {
         this.dueDate = dueDate;
         this.priority = priority;
     }
-
 }
-
-const field1Selector = document.querySelector('#title')
-const field2Selector = document.querySelector('#description')
-const field3Selector = document.querySelector('#dueDate')
-const field4Selector = document.querySelector('#priority')
 
 const createTask = document.querySelector('#createTask')
 
@@ -32,11 +27,7 @@ createTask.addEventListener('click', () => {
         && field3.trim() != '' && field4.trim() != '') {
             const newTask = new Task(field1, field2, field3, field4);
             projectList[id2Selector].todolist.push(newTask)
-            field1Selector.value = "";
-            field2Selector.value = "";
-            field3Selector.value = "";
-            field4Selector.value = "low";
-
+            clearForm()
             showTaskList()
         }
     }

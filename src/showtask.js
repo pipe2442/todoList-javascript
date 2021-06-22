@@ -1,6 +1,5 @@
-import {
-    projectList
-} from "./newproject";
+import {projectList} from "./newproject";
+import clearForm from "./clearForm";
 
 const showTaskList = () => {
     const id2Selector = createTask.getAttribute('id2')
@@ -10,7 +9,7 @@ const showTaskList = () => {
     list.innerHTML = "";
     const newdiv = document.createElement('div')
 
-    task.forEach(function (task) {   
+    task.forEach(function (task) {
         newdiv.innerHTML += `
         <h5 class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample${taskindex}" role="button"
             aria-expanded="false" aria-controls="multiCollapseExample${taskindex}">
@@ -27,25 +26,38 @@ const showTaskList = () => {
             </div>
         </div>
     </div>
-    `  
+    `
         list.append(newdiv)
-        // finalTasklist.append(list)
+
         taskindex++
     });
 
     let deleteButton = document.querySelectorAll('#taskqueue div div div button.btn-danger')
     deleteButton.forEach(function (t) {
-        t.addEventListener('click', (e) => { 
+        t.addEventListener('click', (e) => {
             projectList[id2Selector].todolist.splice(e.target.id, 1);
-            showTaskList()           
-        });       
-             
+            showTaskList()
+        });
+
     })
+
+    const field1Selector = document.querySelector('#title')
+    const field2Selector = document.querySelector('#description')
+    const field3Selector = document.querySelector('#dueDate')
+    const field4Selector = document.querySelector('#priority')
+
     let editButton = document.querySelectorAll('#taskqueue div div div button.btn-warning')
     editButton.forEach(function (t) {
-        t.addEventListener('click', (e) => { 
-            console.log(`vas a editar ${e.target.id}`)
-        });            
+        t.addEventListener('click', (e) => {
+            let title = projectList[id2Selector].todolist[e.target.id].title
+            let description = projectList[id2Selector].todolist[e.target.id].description
+            let dueDate = projectList[id2Selector].todolist[e.target.id].dueDate
+            let priority = projectList[id2Selector].todolist[e.target.id].priority
+            field1Selector.value = title;
+            field2Selector.value = description;
+            field3Selector.value = dueDate;
+            field4Selector.value = priority;
+        });
     })
 
 }
@@ -58,4 +70,6 @@ const wipeShowTask = () => {
 }
 
 export default showTaskList;
-export {wipeShowTask}
+export {
+    wipeShowTask
+}

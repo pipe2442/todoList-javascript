@@ -1,5 +1,6 @@
 import showTaskList from './showtask';
 import wipeShowTask from './showtask';
+import clearForm from './clearForm';
 
 
 class Project {
@@ -47,7 +48,7 @@ addButton.addEventListener('click', () => {
 
     const lastaSelector = document.querySelector('.sidenav ul li:last-child a:last-child')
     lastaSelector.classList.toggle('active')
-
+    clearForm()
     wipeShowTask()
   
     /* Al clickear un proyecto ocurre */ 
