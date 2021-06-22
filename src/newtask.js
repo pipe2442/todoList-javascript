@@ -16,7 +16,7 @@ import clearForm from './clearForm';
     
     const createTask = document.querySelector('#createTask')
     
-    createTask.addEventListener('click', () => {
+        createTask.addEventListener('click', () => {
         const id2Selector = createTask.getAttribute('id2')
         if (id2Selector != null) {
     
