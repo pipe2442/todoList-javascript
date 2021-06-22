@@ -77,8 +77,6 @@ const showTaskList = () => {
 
 }
 
-
-
 const wipeShowTask = () => {
     const list = document.getElementById('taskqueue')
     list.innerHTML = "";
