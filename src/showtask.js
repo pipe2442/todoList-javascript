@@ -1,4 +1,6 @@
-import {projectList} from "./newproject";
+import {
+    projectList
+} from "./newproject";
 import clearForm from "./clearForm";
 
 const showTaskList = () => {
@@ -57,6 +59,19 @@ const showTaskList = () => {
             field2Selector.value = description;
             field3Selector.value = dueDate;
             field4Selector.value = priority;
+            const taskFormSelector = document.querySelector('#taskForm')
+            if (!document.querySelector("#taskForm input[value='Update']")) {
+                const newBtn = document.createElement('input')
+                newBtn.setAttribute('type', 'button')
+                newBtn.setAttribute('value', 'Update')
+                taskFormSelector.append(newBtn)
+            }
+            // if (document.querySelector("input[value='Update']")) {
+            //     console.log('ya existe el boton')
+            //     // projectList[id2Selector].todolist.splice(e.target.id, new Task);
+            // }
+
+
         });
     })
 

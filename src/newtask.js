@@ -10,7 +10,13 @@ class Task {
         this.dueDate = dueDate;
         this.priority = priority;
     }
+
 }
+
+const field1Selector = document.querySelector('#title')
+const field2Selector = document.querySelector('#description')
+const field3Selector = document.querySelector('#dueDate')
+const field4Selector = document.querySelector('#priority')
 
 const createTask = document.querySelector('#createTask')
 
@@ -28,6 +34,7 @@ createTask.addEventListener('click', () => {
             const newTask = new Task(field1, field2, field3, field4);
             projectList[id2Selector].todolist.push(newTask)
             clearForm()
+
             showTaskList()
         }
     }
