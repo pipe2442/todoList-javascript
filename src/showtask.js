@@ -15,9 +15,9 @@ const showTaskList = () => {
             aria-expanded="false" aria-controls="multiCollapseExample${taskindex}">
             ${task.title}
         </h5>
-    <div class="row">
-        <div class="collapse multi-collapse" id="multiCollapseExample${taskindex}">
-            <div>
+    <div class="row my-2">
+        <div class="collapse multi-collapse card " id="multiCollapseExample${taskindex}">
+            <div class="card-body">
             <h5>Description: ${task.description}</h5>
             <h5>Due Date: ${task.dueDate}</h5>
             <h5>Priority: ${task.priority}</h5>
