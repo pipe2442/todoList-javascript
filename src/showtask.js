@@ -68,7 +68,7 @@ const showTaskList = () => {
                 taskFormSelector.append(newBtn)
             }
             const updateBtn = document.querySelector("input[value='Update']")
-            updateBtn.addEventListener('click', () => {
+            updateBtn.addEventListener('click', (e) => {
                 const field1 = document.querySelector('#title').value
                 const field2 = document.querySelector('#description').value
                 const field3 = document.querySelector('#dueDate').value
@@ -79,6 +79,7 @@ const showTaskList = () => {
                     projectList[id2Selector].todolist.splice(e.target.id, 1, newTask);
                     showTaskList()
                     clearForm()
+                    e.target.remove()
                 }
                 const newTask = new Task('a', 'e', '', 'low');
                 
