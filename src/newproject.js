@@ -13,7 +13,7 @@ class Project {
 }
 
 let projectList = []
-get_localstorage()
+
 const addButton = document.querySelector('#add');
 const getProjectName = document.querySelector('#projectName')
 
@@ -76,6 +76,10 @@ const projectDom = () => {
   }
 }
 
+addButton.addEventListener('click', () => {
+  projectDom()
+});
+
 const projectDomLocal = (t) => {
   const newProjects = t;
 
@@ -98,14 +102,22 @@ const projectDomLocal = (t) => {
   const createTask = document.getElementById('createTask')
   const list = document.getElementById('taskqueue')
   createTask.setAttribute('id2', `${index}`)
-  
+
+  projectSelector.addEventListener('click', (e) => {
+    createTask.setAttribute('id2', `${index}`)
+    list.setAttribute('id2', `${index}`)
+    var activeSelector = document.querySelectorAll(".sidenav ul li a");
+    activeSelector.forEach(function (t) {
+      if (t.classList.contains('active')){
+        t.classList.remove('active')
+      }
+    e.target.classList.add('active')
+    })
+    showTaskList()
+    
+  })
 }
 
-addButton.addEventListener('click', () => {
-  /* Agregar proyecto */ 
-  
-  projectDom()
-});
-
+get_localstorage() 
 
 export {projectList, projectDomLocal};

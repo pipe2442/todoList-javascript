@@ -1,6 +1,9 @@
 import {
     projectList
 } from './newproject';
+import {
+    save_localstorage
+  } from './localstorage';
 import showTaskList from './showtask';
 import clearForm from './clearForm';
 
@@ -29,6 +32,7 @@ import clearForm from './clearForm';
             && field3.trim() != '' && field4.trim() != '') {
                 const newTask = new Task(field1, field2, field3, field4);
                 projectList[id2Selector].todolist.push(newTask)
+                save_localstorage()
                 clearForm()
     
                 showTaskList()

@@ -3,7 +3,9 @@ import {
 } from "./newproject";
 import Task from "./newtask";
 import clearForm from "./clearForm";
-
+import {
+    save_localstorage
+  } from './localstorage';
 const showTaskList = () => {
     const id2Selector = createTask.getAttribute('id2')
     const task = projectList[id2Selector].todolist
@@ -82,9 +84,11 @@ const showTaskList = () => {
                 && field3.trim() != '' && field4.trim() != '') {
                     const newTask = new Task(field1, field2, field3, field4);
                     projectList[id2Selector].todolist.splice(e.target.getAttribute('id'), 1, newTask);
+                    save_localstorage()
                     showTaskList()
                     clearForm()
                     e.target.remove()
+                    
                 }
                 
             });
