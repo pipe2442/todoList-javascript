@@ -3,11 +3,7 @@ import {
 } from "./newproject";
 import Task from "./newtask";
 import clearForm from "./clearForm";
-const updateForm = () => {
-//   1:¨Onclick edit and index id should be submited as paramater;´
-//   Using this paramater, create a query calling data-id=x
-//   replace the innerHTML with the new one
-}
+
 const showTaskList = () => {
     const id2Selector = createTask.getAttribute('id2')
     const task = projectList[id2Selector].todolist
