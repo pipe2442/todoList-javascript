@@ -3,7 +3,11 @@ import {
 } from "./newproject";
 import Task from "./newtask";
 import clearForm from "./clearForm";
-
+const updateForm = () => {
+//   1:¨Onclick edit and index id should be submited as paramater;´
+//   Using this paramater, create a query calling data-id=x
+//   replace the innerHTML with the new one
+}
 const showTaskList = () => {
     const id2Selector = createTask.getAttribute('id2')
     const task = projectList[id2Selector].todolist
@@ -61,14 +65,19 @@ const showTaskList = () => {
             field3Selector.value = dueDate;
             field4Selector.value = priority;
             const taskFormSelector = document.querySelector('#taskForm')
+            const newBtn = document.createElement('input')
+            newBtn.setAttribute('type', 'button')
+            newBtn.setAttribute('value', 'Update')
             if (!document.querySelector("#taskForm input[value='Update']")) {
-                const newBtn = document.createElement('input')
-                newBtn.setAttribute('type', 'button')
-                newBtn.setAttribute('value', 'Update')
+                newBtn.setAttribute('id', `${e.target.id}`)
                 taskFormSelector.append(newBtn)
+            } else {
+                document.querySelector("#taskForm input[value='Update']").setAttribute('id', `${e.target.id}`)
             }
+            
             const updateBtn = document.querySelector("input[value='Update']")
             updateBtn.addEventListener('click', (e) => {
+                
                 const field1 = document.querySelector('#title').value
                 const field2 = document.querySelector('#description').value
                 const field3 = document.querySelector('#dueDate').value
@@ -76,14 +85,11 @@ const showTaskList = () => {
                 if (field1.trim() != '' && field2.trim() != ''
                 && field3.trim() != '' && field4.trim() != '') {
                     const newTask = new Task(field1, field2, field3, field4);
-                    projectList[id2Selector].todolist.splice(e.target.id, 1, newTask);
+                    projectList[id2Selector].todolist.splice(e.target.getAttribute('id'), 1, newTask);
                     showTaskList()
                     clearForm()
                     e.target.remove()
                 }
-                const newTask = new Task('a', 'e', '', 'low');
-                
-                
                 
             });
         });
