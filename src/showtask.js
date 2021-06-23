@@ -41,6 +41,7 @@ const showTaskList = () => {
     deleteButton.forEach(function (t) {
         t.addEventListener('click', (e) => {
             projectList[id2Selector].todolist.splice(e.target.id, 1);
+            save_localstorage()
             showTaskList()
         });
 
