@@ -5,7 +5,7 @@ import Task from "./newtask";
 import clearForm from "./clearForm";
 import {
     save_localstorage
-  } from './localstorage';
+} from './localstorage';
 const showTaskList = () => {
     const id2Selector = createTask.getAttribute('id2')
     const task = projectList[id2Selector].todolist
@@ -15,8 +15,20 @@ const showTaskList = () => {
     const newdiv = document.createElement('div')
 
     task.forEach(function (task) {
+        let color
+        if (task.priority === 'low') {
+            color = 'btn-info'
+        } else if (task.priority === 'medium') {
+            color = 'btn-primary'
+        } else if (task.priority === 'urgent') {
+            color = 'btn-danger'
+        } else if (task.priority === 'completed') {
+            color = 'btn-success'
+        }
+
+        
         newdiv.innerHTML += `
-        <h5 class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample${taskindex}" role="button"
+        <h5 class="btn ${color}" data-bs-toggle="collapse" href="#multiCollapseExample${taskindex}" role="button"
             aria-expanded="false" aria-controls="multiCollapseExample${taskindex}">
             ${task.title}
         </h5>
@@ -25,14 +37,25 @@ const showTaskList = () => {
             <div class="card-body">
             <h5>Description: ${task.description}</h5>
             <h5>Due Date: ${task.dueDate}</h5>
-            <h5>Priority: ${task.priority}</h5>
             <button type="button" class="btn btn-warning" id="${taskindex}">Edit</button>
             <button type="button" class="btn btn-danger" id="${taskindex}">Delete</button>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${taskindex}" data-check="${taskindex}">
+                    <label class="form-check-label" for="flexCheckDefault${taskindex}">
+                    Completed
+                    </label>
+                </div>
             </div>
         </div>
     </div>
     `
-        list.append(newdiv)
+    list.append(newdiv)
+    let test = document.querySelector(`input[data-check]=${taskindex}`)
+        test.addEventListener('click', (e) => {
+            console.log('hola')      
+        });
+
+        
 
         taskindex++
     });
@@ -73,25 +96,25 @@ const showTaskList = () => {
             } else {
                 document.querySelector("#taskForm input[value='Update']").setAttribute('id', `${e.target.id}`)
             }
-            
+
             const updateBtn = document.querySelector("input[value='Update']")
             updateBtn.addEventListener('click', (e) => {
-                
+
                 const field1 = document.querySelector('#title').value
                 const field2 = document.querySelector('#description').value
                 const field3 = document.querySelector('#dueDate').value
                 const field4 = document.querySelector('#priority').value
-                if (field1.trim() != '' && field2.trim() != ''
-                && field3.trim() != '' && field4.trim() != '') {
-                    const newTask = new Task(field1, field2, field3, field4);
+                if (field1.trim() != '' && field2.trim() != '' &&
+                    field3.trim() != '' && field4.trim() != '') {
+                    const newTask = new Task(field1, field2, field3, 'field4');
                     projectList[id2Selector].todolist.splice(e.target.getAttribute('id'), 1, newTask);
                     save_localstorage()
                     showTaskList()
                     clearForm()
                     e.target.remove()
-                    
+
                 }
-                
+
             });
         });
     })
@@ -104,4 +127,6 @@ const wipeShowTask = () => {
 }
 
 export default showTaskList;
-export {wipeShowTask}
+export {
+    wipeShowTask
+}
