@@ -18,13 +18,13 @@ const showTaskList = () => {
         let color
         console.log(task.priority)
         if (task.priority === 'low') {
-            color = 'btn-info'
-        } else if (task.priority === 'medium') {
             color = 'btn-primary'
+        } else if (task.priority === 'medium') {
+            color = 'btn-warning'
         } else if (task.priority === 'urgent') {
             color = 'btn-danger'
         } else if (task.priority === 'completed') {
-            color = 'btn-success'
+            color = 'btn-light'
         }
 
         
@@ -36,27 +36,29 @@ const showTaskList = () => {
     <div class="row my-2">
         <div class="collapse multi-collapse card " id="multiCollapseExample${taskindex}">
             <div class="card-body">
-            <h5>Description: ${task.description}</h5>
+            <h5 id="theDescription">Description: ${task.description}</h5>
             <h5>Due Date: ${task.dueDate}</h5>
             <button type="button" class="btn btn-warning" id="${taskindex}">Edit</button>
             <button type="button" class="btn btn-danger" id="${taskindex}">Delete</button>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="completed" id="flexCheckDefault${taskindex}">
-                    <label class="form-check-label" for="flexCheckDefault${taskindex}">
-                    Completed
-                    </label>
+                <button type="button" class="btn btn-success" id="${taskindex}">Complete</button>
                 </div>
             </div>
         </div>
     </div>
     `
     list.append(newdiv)
-    let test = document.querySelector('.form-check-input')
-        test.addEventListener('click', (e) => {
-            e.target.checked=true
-            projectList[id2Selector].todolist.splice(e.target.getAttribute('id'), 1, new Task(task.title,task.description,task.dueDate,'completed')); 
+    let test = document.querySelectorAll('.form-check button')
+    test.forEach(function (t) {    
+        t.addEventListener('click', (e) => {
+            console.log('COME MONDA')
+            let testTask = new Task('COMPLETED','','','')
+            //testTask.getAttribute(h5).style.display = "none"
+            projectList[id2Selector].todolist.splice(e.target.getAttribute('id'), 1, testTask); 
+            save_localstorage()
             showTaskList()  
         });
+    });
 
         taskindex++
     });
