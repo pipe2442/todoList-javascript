@@ -47,6 +47,7 @@ const pageLoad = (() => {
     /* Create content inside sideBar*/
     const sidenavSelector = document.querySelector('.sidenav');
     const createTitle = document.createElement('h4');
+    createTitle.classList.add('text-center')
     createTitle.innerText = 'Projects';
     sidenavSelector.append(createTitle);
 
@@ -59,13 +60,16 @@ const pageLoad = (() => {
     const submitProjectButton = document.createElement('input')
     submitProjectButton.setAttribute('type', 'button')
     submitProjectButton.setAttribute('value', 'Create')
+    submitProjectButton.setAttribute('id', 'add')
+    submitProjectButton.classList.add('mx-1')
     createInputProjectName.setAttribute('type', 'text')
     createInputProjectName.setAttribute('id', 'projectName')
     createInputProjectName.setAttribute('placeholder', 'New Project Name')
     createInputProjectName.setAttribute('size', '15');
     createInputProjectName.classList.add('my-1')
     formSelector.append(createInputProjectName)
-    submitProjectButton.setAttribute('id', 'add')
+    
+   
 
     formSelector.appendChild(submitProjectButton)
     /* Create list of projects */
@@ -78,6 +82,7 @@ const pageLoad = (() => {
     const taskSelector = document.querySelector('.task')
     const createTitle2 = document.createElement('h4');
     createTitle2.innerText = 'Tasks';
+    createTitle2.classList.add('text-center')
     taskSelector.append(createTitle2);
     const taskForm = document.createElement('div')
     taskForm.innerHTML = `<form id="taskForm">
@@ -106,7 +111,7 @@ const pageLoad = (() => {
     createDiv4.setAttribute('id', 'finalTasklist')
     sidebarSelector.append(createDiv4);
     createDiv4.innerHTML = `
-    <h4>Task List</h4>
+    <h4 class="text-center">Task List</h4>
     <div id="taskqueue"></div>`
 
   })();

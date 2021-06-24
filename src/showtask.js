@@ -16,7 +16,6 @@ const showTaskList = () => {
 
     task.forEach(function (task) {
         let color
-        console.log(task.priority)
         if (task.priority === 'low') {
             color = 'btn-primary'
         } else if (task.priority === 'medium') {
@@ -24,7 +23,7 @@ const showTaskList = () => {
         } else if (task.priority === 'urgent') {
             color = 'btn-danger'
         } else if (task.priority === 'completed') {
-            color = 'btn-light'
+            color = 'btn-success'
         }
 
         
@@ -33,27 +32,23 @@ const showTaskList = () => {
             aria-expanded="false" aria-controls="multiCollapseExample${taskindex}">
             ${task.title}
         </h5>
-    <div class="row my-2">
-        <div class="collapse multi-collapse card " id="multiCollapseExample${taskindex}">
-            <div class="card-body">
-            <h5 id="theDescription">Description: ${task.description}</h5>
-            <h5>Due Date: ${task.dueDate}</h5>
-            <button type="button" class="btn btn-warning" id="${taskindex}">Edit</button>
-            <button type="button" class="btn btn-danger" id="${taskindex}">Delete</button>
-                <div class="form-check">
-                <button type="button" class="btn btn-success" id="${taskindex}">Complete</button>
+        <div class="row my-2">
+            <div class="collapse multi-collapse" id="multiCollapseExample${taskindex}">
+                <div class="card-body text-center">
+                    <h5 id="theDescription">Description: ${task.description}</h5>
+                    <h5>Due Date: ${task.dueDate}</h5>
+                    <button type="button" class="btn btn-warning" id="${taskindex}">Edit</button>
+                    <button type="button" class="btn btn-danger" id="${taskindex}">Delete</button>
+                    <button type="button" class="btn btn-success" id="${taskindex}">Complete</button>
                 </div>
             </div>
         </div>
-    </div>
-    `
+        `
     list.append(newdiv)
-    let test = document.querySelectorAll('.form-check button')
+    let test = document.querySelectorAll('button.btn-success')
     test.forEach(function (t) {    
         t.addEventListener('click', (e) => {
-            console.log('COME MONDA')
-            let testTask = new Task('COMPLETED','','','')
-            //testTask.getAttribute(h5).style.display = "none"
+            let testTask = new Task(task.title,task.description,task.dueDate,'completed')
             projectList[id2Selector].todolist.splice(e.target.getAttribute('id'), 1, testTask); 
             save_localstorage()
             showTaskList()  
@@ -90,17 +85,20 @@ const showTaskList = () => {
             field3Selector.value = dueDate;
             field4Selector.value = priority;
             const taskFormSelector = document.querySelector('#taskForm')
-            const newBtn = document.createElement('input')
+            const newBtn = document.createElement('input') 
             newBtn.setAttribute('type', 'button')
-            newBtn.setAttribute('value', 'Update')
-            if (!document.querySelector("#taskForm input[value='Update']")) {
+            newBtn.setAttribute('value', 'update')
+            newBtn.classList.add('btn','btn-primary')
+            if (!document.querySelector("#taskForm input[value='update']")) {
                 newBtn.setAttribute('id', `${e.target.id}`)
-                taskFormSelector.append(newBtn)
+                taskFormSelector.append(document.createElement('br'))
+                taskFormSelector.append(document.createElement('br'))
+                taskFormSelector.appendChild(newBtn)
             } else {
-                document.querySelector("#taskForm input[value='Update']").setAttribute('id', `${e.target.id}`)
+                document.querySelector("#taskForm input[value='update']").setAttribute('id', `${e.target.id}`)
             }
 
-            const updateBtn = document.querySelector("input[value='Update']")
+            const updateBtn = document.querySelector("input[value='update']")
             updateBtn.addEventListener('click', (e) => {
 
                 const field1 = document.querySelector('#title').value
