@@ -101,6 +101,8 @@ const pageLoad = (() => {
       </select><br>
     
       <button type="button" class="btn btn-primary mt-2" id="createTask" >Add task</button>
+      </br>
+      </br>
     </form> 
     `
     taskSelector.append(taskForm)

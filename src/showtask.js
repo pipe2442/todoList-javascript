@@ -91,8 +91,6 @@ const showTaskList = () => {
             newBtn.classList.add('btn','btn-primary')
             if (!document.querySelector("#taskForm input[value='update']")) {
                 newBtn.setAttribute('id', `${e.target.id}`)
-                taskFormSelector.append(document.createElement('br'))
-                taskFormSelector.append(document.createElement('br'))
                 taskFormSelector.appendChild(newBtn)
             } else {
                 document.querySelector("#taskForm input[value='update']").setAttribute('id', `${e.target.id}`)
