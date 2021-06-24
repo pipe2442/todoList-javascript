@@ -47,9 +47,9 @@ const showTaskList = () => {
     list.append(newdiv)
     let test = document.querySelectorAll('button.btn-success')
     test.forEach(function (t) {    
+        
         t.addEventListener('click', (e) => {
-            let testTask = new Task(task.title,task.description,task.dueDate,'completed')
-            projectList[id2Selector].todolist.splice(e.target.getAttribute('id'), 1, testTask); 
+            projectList[id2Selector].todolist[t.id].priority= 'completed' 
             save_localstorage()
             showTaskList()  
         });
