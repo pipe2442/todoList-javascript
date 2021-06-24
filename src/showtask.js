@@ -16,6 +16,7 @@ const showTaskList = () => {
 
     task.forEach(function (task) {
         let color
+        console.log(task.priority)
         if (task.priority === 'low') {
             color = 'btn-info'
         } else if (task.priority === 'medium') {
@@ -40,7 +41,7 @@ const showTaskList = () => {
             <button type="button" class="btn btn-warning" id="${taskindex}">Edit</button>
             <button type="button" class="btn btn-danger" id="${taskindex}">Delete</button>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${taskindex}" data-check="${taskindex}">
+                    <input class="form-check-input" type="checkbox" value="completed" id="flexCheckDefault${taskindex}">
                     <label class="form-check-label" for="flexCheckDefault${taskindex}">
                     Completed
                     </label>
@@ -50,12 +51,12 @@ const showTaskList = () => {
     </div>
     `
     list.append(newdiv)
-    let test = document.querySelector(`input[data-check]=${taskindex}`)
+    let test = document.querySelector('.form-check-input')
         test.addEventListener('click', (e) => {
-            console.log('hola')      
+            e.target.checked=true
+            projectList[id2Selector].todolist.splice(e.target.getAttribute('id'), 1, new Task(task.title,task.description,task.dueDate,'completed')); 
+            showTaskList()  
         });
-
-        
 
         taskindex++
     });
@@ -106,7 +107,7 @@ const showTaskList = () => {
                 const field4 = document.querySelector('#priority').value
                 if (field1.trim() != '' && field2.trim() != '' &&
                     field3.trim() != '' && field4.trim() != '') {
-                    const newTask = new Task(field1, field2, field3, 'field4');
+                    const newTask = new Task(field1, field2, field3, field4);
                     projectList[id2Selector].todolist.splice(e.target.getAttribute('id'), 1, newTask);
                     save_localstorage()
                     showTaskList()
