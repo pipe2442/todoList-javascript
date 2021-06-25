@@ -32,7 +32,7 @@
 
 ## Live Demo
 
-- [Hosted on Github Pages](https://pipe2442.github.io/restaurantjs/dist/)
+- [Hosted on Github Pages](https://pipe2442.github.io/todoList-javascript/)
 
 ## Getting Started
 
