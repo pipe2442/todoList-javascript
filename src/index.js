@@ -1,5 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import pageLoad from './pageload';
-import projectList from './newproject';
-import newTask from './newtask'
-import clearForm from './clearForm'
-import localstorage from './localstorage'
+import Project from './newproject';
+import newTask from './newtask';

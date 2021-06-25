@@ -1,19 +1,22 @@
-import {
-    projectList, projectDomLocal
-} from './newproject';
-const save_localstorage = () => {
-    localStorage.setItem('ListaDeProyectos', JSON.stringify(projectList))
-}
+/* eslint-disable import/no-cycle */
+import { projectList, projectDomLocal, Project } from './newproject';
 
-const get_localstorage = () => {
-    
-    if (localStorage.getItem('ListaDeProyectos')) {
-        let test = JSON.parse(localStorage.getItem('ListaDeProyectos')) 
-        test.forEach(t => {
-            projectList.push(t)
-            projectDomLocal(t)
-        });
-    }
-}
+const saveLocalstorage = () => {
+  localStorage.setItem('ListaDeProyectos', JSON.stringify(projectList));
+};
 
-export { save_localstorage, get_localstorage }
+const getLocalstorage = () => {
+  if (localStorage.getItem('ListaDeProyectos')) {
+    const getTask = JSON.parse(localStorage.getItem('ListaDeProyectos'));
+    getTask.forEach((t) => {
+      projectList.push(t);
+      projectDomLocal(t);
+    });
+  } else {
+    const defaultProject = new Project('Default Project');
+    projectList.push(defaultProject);
+    projectDomLocal(defaultProject);
+  }
+};
+
+export { saveLocalstorage, getLocalstorage };
