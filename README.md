@@ -18,7 +18,7 @@
 
 <br/>
 
-<b>Todo List </b> The main goal of this project is to understand the benefits of modularized code as well as the ability to set up a javascript application The lesson showing the concepts of “Single Responsibility” and “Tightly Coupled Objects”.
+The main goal of this project is to understand the benefits of modularized code as well as the ability to set up a javascript application to show the concepts of “Single Responsibility” and “Tightly Coupled Objects”.
 
 ![screenshot](https://github.com/pipe2442/tictactoe_javascript/blob/feature_tictactoe/assets/images/javascript.png)
 
@@ -37,14 +37,14 @@
 
 ## Getting Started
 
-1. Open Terminal.
-2. Navigate to your desired location to download the contents of this repository.
-3. Copy and paste the following code into the Terminal :
+1. Open your terminal.
+2. Navigate to the desired location to download the contents of this repository.
+3. Copy and paste the following code into your terminal :
    ```bash
    $ git clone https://github.com/carloso0114/todo-list-js/tree/feature-todo-list
    ```
 4. Run `cd todo-list-js`
-5. Install the needed dependencies 
+5. Install your dependencies 
     ```bash
     $ npm install
     ```
@@ -78,7 +78,7 @@ Launch the local version of this project opening the `dist/index.html` file in t
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/pipe2442/Linter/issues).
+Feel free to check the [issues page](https://github.com/pipe2442/todoList-javascript/issues).
 
 ## Show your support
 
