@@ -1,5 +1,6 @@
 # Todo-List With Javascript
 
+
 > This project is part of Javascript 1.1 Module with the aim of building a Todo list web application with localstorage.
 
 <p align="center">
@@ -90,3 +91,4 @@ Give a ⭐️ if you like this project! 🤝
 ## 📝 License
 
 This project is [MIT](LICENSE) licensed.
+
